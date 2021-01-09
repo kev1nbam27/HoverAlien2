@@ -179,7 +179,7 @@ public class GameController : MonoBehaviour
 
     public void LoadLevels()
     {
-        if (PlayerPrefs.GetString("levels", "Felix") == "Felix")
+        if (PlayerPrefs.GetString("levels", "Felix") != "Felix")
         {
             allLevels = JsonConvert.DeserializeObject<LevelsRoot>(PlayerPrefs.GetString("levels"));
         }

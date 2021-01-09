@@ -361,6 +361,94 @@ public class GameController : MonoBehaviour
                         obstclSprite= "Ground_SandHalf",
                         difficulty= 24
                     },
+
+            
+
+
+                //PAGE_2 PAGE_2 PAGE_2 PAGE_2 PAGE_2
+                //PAGE_2 PAGE_2 PAGE_2 PAGE_2 PAGE_2
+                //PAGE_2 PAGE_2 PAGE_2 PAGE_2 PAGE_2
+                //PAGE_2 PAGE_2 PAGE_2 PAGE_2 PAGE_2
+                //PAGE_2 PAGE_2 PAGE_2 PAGE_2 PAGE_2
+                new Level{
+                        id= 20,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 25
+                    },
+
+                new Level{
+                        id= 21,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 26
+                    },
+
+                new Level{
+                        id= 22,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 27
+                    },
+
+                new Level{
+                        id= 23,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 28
+                    },
+
+                new Level{
+                        id= 24,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 29
+                    },
+
+                new Level{
+                        id= 25,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 30
+                    },
+                
+                new Level{
+                        id= 26,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 31
+                    },
+
+                new Level{
+                        id= 27,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 32
+                    },
+
+                new Level{
+                        id= 28,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 33
+                    },
+
+                new Level{
+                        id= 29,
+                        page= "Page_2",
+                        bgSprite= "BG_Colored_shroom",
+                        obstclSprite= "Ground_DirtHalf",
+                        difficulty= 34
+                    },
             };
 
             SaveLevels();

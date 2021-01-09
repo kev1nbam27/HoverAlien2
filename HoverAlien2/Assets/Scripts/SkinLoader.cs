@@ -12,7 +12,7 @@ public class SkinLoader : MonoBehaviour
     public int sks;
     public int bgs;
     public int lrs;
-    //public class Root{};
+    //public class SkinsRoot{};
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -20,7 +20,7 @@ public class SkinLoader : MonoBehaviour
         bgs = 0;
         lrs = 0;
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-        GameController.Root allSkins = gameController.allSkins;
+        GameController.SkinsRoot allSkins = gameController.allSkins;
         if (this.name == "PageSkins_MySkins")
         {
             if (transform.childCount > 0)
@@ -279,7 +279,7 @@ public class SkinLoader : MonoBehaviour
 
     public void SelectSkin(Button button)
     {
-        GameController.Root allSkins = gameController.allSkins;
+        GameController.SkinsRoot allSkins = gameController.allSkins;
         foreach (GameController.Skin s in allSkins.skins)
         {
             if (s.name == button.name)

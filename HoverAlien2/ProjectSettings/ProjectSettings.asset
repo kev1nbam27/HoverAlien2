@@ -829,12 +829,12 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Analytics: 1
+    Analytics: 0
     Build: 1
     Collab: 0
     Game Performance: 0
     Purchasing: 0
-    Unity Ads: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -847,9 +847,9 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 4c998c47-07b4-4d8d-be88-900e813beb35
+  cloudProjectId: b190b36e-1f49-4a54-b073-9fb20a1b52c8
   framebufferDepthMemorylessMode: 0
-  projectName: HoverAlien
+  projectName: HoverAlien2
   organizationId: fel1ce27
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

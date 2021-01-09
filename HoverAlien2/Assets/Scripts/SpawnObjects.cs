@@ -10,6 +10,8 @@ public class SpawnObjects : MonoBehaviour
     public float coinRespawnTime = 0.5f;
     public int obstacleCount;
     public float obstacleWaveWait;
+    public int obstacleWaveCount = 10;
+    int obstacleWaves;
     private Vector2 screenBounds;
 
     // Use this for initialization
@@ -22,7 +24,7 @@ public class SpawnObjects : MonoBehaviour
 
     void Update()
     {
-        obstacleCount = 5 + (int)((float)GameController.score / 1000);
+        obstacleCount = GameController.activeLevel.difficulty;
     }
 
     private void spawnObstacle(){
@@ -31,14 +33,18 @@ public class SpawnObjects : MonoBehaviour
         o.GetComponent<DestroyByContact>().screenBounds = screenBounds;
     }
     IEnumerator obstacleWave(){
-        while(true){
+        int j = 0;
+        while(j<=obstacleWaveCount){
             for (int i = 0; i < obstacleCount; i++)
             {
                 yield return new WaitForSeconds(obstacleRespawnTime);
                 spawnObstacle();
             }
             yield return new WaitForSeconds (obstacleWaveWait);
+            j = j + 1;
         }
+        transform.GetComponent<GameController>().currentLevel = transform.GetComponent<GameController>().currentLevel + 1;
+        transform.GetComponent<GameController>().SaveCurrentLevel();
     }
 
     private void spawnCoin(){

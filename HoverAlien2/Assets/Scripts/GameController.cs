@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     public static int score;
     public static string menu;
     public static string lastMenu;
-    public Root allSkins;
+    public SkinsRoot allSkins;
     public Options optionsObject;
     public bool adsEnabled;
     public int highscore;
@@ -41,12 +41,17 @@ public class GameController : MonoBehaviour
     string placement = "rewardedVideo";
 
     public GameObject errorMessage;
-    // Start is called before the first frame update
     
+    public LevelsRoot allLevels;
+    public int currentLevel;
+    public static int activeLevelID = -27;
+    public static Level activeLevel;
+    public GameObject levelText;
     
     void OnEnable ()
     {
         Time.timeScale = 1;
+        LoadCurrentLevel();
 
         if (SceneManager.GetActiveScene().name == "Start")
         {
@@ -72,7 +77,7 @@ public class GameController : MonoBehaviour
                 highscore = PlayerPrefs.GetInt("highscore", 0);
                 playButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Restart";
                 titleText.GetComponent<TMPro.TextMeshProUGUI>().text = "Game Over";
-                scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Highscore: " + highscore + "\n" + "Your Score: " + score;
+                scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1);
             }
 
             else if (menu == "Start")
@@ -80,19 +85,13 @@ public class GameController : MonoBehaviour
                 highscore = PlayerPrefs.GetInt("highscore", 0);
                 playButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Play";
                 titleText.GetComponent<TMPro.TextMeshProUGUI>().text = "Hover Alien";
-                scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Highscore: " + highscore;
+                scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1);
             }
 
-            LoadSkins();
-            foreach (Background b in allSkins.backgrounds)
-            {
-                if (b.selected == true)
-                {
-                    background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                    background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                    background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                }
-            }
+            LoadLevels();
+            background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
         }
 
         else if (SceneManager.GetActiveScene().name == "Shop")
@@ -100,15 +99,11 @@ public class GameController : MonoBehaviour
             money = PlayerPrefs.GetInt("money", 0);
             moneyText.GetComponent<TMPro.TextMeshProUGUI>().text = money.ToString();
             LoadSkins();
-            foreach (Background b in allSkins.backgrounds)
-            {
-                if (b.selected == true)
-                {
-                    background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                    background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                    background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                }
-            }
+
+            LoadLevels();
+            background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
         }
 
         else if (SceneManager.GetActiveScene().name == "MySkins")
@@ -116,15 +111,11 @@ public class GameController : MonoBehaviour
             money = PlayerPrefs.GetInt("money", 0);
             moneyText.GetComponent<TMPro.TextMeshProUGUI>().text = money.ToString();
             LoadSkins();
-            foreach (Background b in allSkins.backgrounds)
-            {
-                if (b.selected == true)
-                {
-                    background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                    background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                    background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                }
-            }
+
+            LoadLevels();
+            background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
         }
 
         else if (SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "HowToPlay")
@@ -132,15 +123,19 @@ public class GameController : MonoBehaviour
             LoadSkins();
             LoadUserOptions();
             LoadAdsOptions();
-            foreach (Background b in allSkins.backgrounds)
-            {
-                if (b.selected == true)
-                {
-                    background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                    background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                    background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(b.image);
-                }
-            }
+
+            LoadLevels();
+            background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+        }
+
+        else if (SceneManager.GetActiveScene().name == "Levels")
+        {
+            LoadLevels();
+            background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
         }
 
         else if (SceneManager.GetActiveScene().name == "Play")
@@ -153,11 +148,13 @@ public class GameController : MonoBehaviour
                 score = 0;
             }
 
-            scoreText.GetComponent<TMPro.TextMeshPro>().text = score.ToString();
+            scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
+            levelText.GetComponent<TMPro.TextMeshProUGUI>().text = (activeLevelID + 1).ToString();
 
             LoadSkins();
             LoadUserOptions();
             LoadAdsOptions();
+            LoadLevels();
             Debug.Log(allSkins.skins[0].image);
             foreach (Skin s in allSkins.skins)
             {
@@ -168,25 +165,242 @@ public class GameController : MonoBehaviour
                 }
             }
 
-            foreach (Background b in allSkins.backgrounds)
-            {
-                if (b.selected == true)
-                {
-                    Camera.main.GetComponent<BackgroundLoop>().backgroundSprite = Resources.Load<Sprite>(b.image);
-                }
-            }
+            Camera.main.GetComponent<BackgroundLoop>().backgroundSprite = Resources.Load<Sprite>(allLevels.levels[activeLevelID].bgSprite);
 
             foreach (Laser l in allSkins.lasers)
             {
                 if (l.selected == true)
                 {
-                    Debug.Log("laser");
                     player.GetComponent<ShootLaser>().laserSprite = Resources.Load<Sprite>(l.image);
                 }
             }
         }
     }
- 
+
+    public void LoadLevels()
+    {
+        if (PlayerPrefs.GetString("levels", "Felix") == "Felix")
+        {
+            allLevels = JsonConvert.DeserializeObject<LevelsRoot>(PlayerPrefs.GetString("levels"));
+        }
+
+        else
+        {
+            allLevels = new LevelsRoot();
+            allLevels.levels = new List<Level>() {
+
+                //PAGE_0 PAGE_0 PAGE_0 PAGE_0 PAGE_0
+                //PAGE_0 PAGE_0 PAGE_0 PAGE_0 PAGE_0
+                //PAGE_0 PAGE_0 PAGE_0 PAGE_0 PAGE_0
+                //PAGE_0 PAGE_0 PAGE_0 PAGE_0 PAGE_0
+                //PAGE_0 PAGE_0 PAGE_0 PAGE_0 PAGE_0
+                new Level{
+                        id= 0,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 5
+                    },
+
+                new Level{
+                        id= 1,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 6
+                    },
+
+                new Level{
+                        id= 2,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 7
+                    },
+
+                new Level{
+                        id= 3,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 8
+                    },
+
+                new Level{
+                        id= 4,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 9
+                    },
+
+                new Level{
+                        id= 5,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 10
+                    },
+                
+                new Level{
+                        id= 6,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 11
+                    },
+
+                new Level{
+                        id= 7,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 12
+                    },
+
+                new Level{
+                        id= 8,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 13
+                    },
+
+                new Level{
+                        id= 9,
+                        page= "Page_0",
+                        bgSprite= "BG_Colored_grass",
+                        obstclSprite= "Ground_GrassHalf",
+                        difficulty= 14
+                    },
+
+
+                
+
+                //PAGE_1 PAGE_1 PAGE_1 PAGE_1 PAGE_1
+                //PAGE_1 PAGE_1 PAGE_1 PAGE_1 PAGE_1
+                //PAGE_1 PAGE_1 PAGE_1 PAGE_1 PAGE_1
+                //PAGE_1 PAGE_1 PAGE_1 PAGE_1 PAGE_1
+                //PAGE_1 PAGE_1 PAGE_1 PAGE_1 PAGE_1
+                new Level{
+                        id= 10,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 15
+                    },
+
+                new Level{
+                        id= 11,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 16
+                    },
+
+                new Level{
+                        id= 12,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 17
+                    },
+
+                new Level{
+                        id= 13,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 18
+                    },
+
+                new Level{
+                        id= 14,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 19
+                    },
+
+                new Level{
+                        id= 15,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 20
+                    },
+                
+                new Level{
+                        id= 16,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 21
+                    },
+
+                new Level{
+                        id= 17,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 22
+                    },
+
+                new Level{
+                        id= 18,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 23
+                    },
+
+                new Level{
+                        id= 19,
+                        page= "Page_1",
+                        bgSprite= "BG_Colored_desert",
+                        obstclSprite= "Ground_SandHalf",
+                        difficulty= 24
+                    },
+            };
+
+            SaveLevels();
+        }
+
+        activeLevel = allLevels.levels[activeLevelID];
+    }
+
+    public void SaveLevels()
+    {
+        string json = JsonConvert.SerializeObject(allLevels);
+        PlayerPrefs.SetString("levels", json);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadCurrentLevel()
+    {
+        if (PlayerPrefs.GetInt("currentLevel", -27) != -27)
+        {
+            currentLevel = PlayerPrefs.GetInt("currentLevel");
+        }
+
+        else
+        {
+            currentLevel = 0;
+            SaveCurrentLevel();
+        }
+
+        if (activeLevelID == -27)
+        {
+            activeLevelID = currentLevel;
+        }
+    }
+
+    public void SaveCurrentLevel()
+    {
+        PlayerPrefs.SetInt("currentLevel", currentLevel);
+        activeLevelID = currentLevel;
+    }
+
     public void GameOverRetry()
     {
         if (retry && Advertisement.IsReady(placement) && !retried && score > 1990 && adsEnabled != false)
@@ -363,7 +577,7 @@ public class GameController : MonoBehaviour
         if (PlayerPrefs.GetString("skins", "Felix") != "Felix")
         {
             Debug.Log(PlayerPrefs.GetString("skins"));
-            allSkins = JsonConvert.DeserializeObject<Root>(PlayerPrefs.GetString("skins"));
+            allSkins = JsonConvert.DeserializeObject<SkinsRoot>(PlayerPrefs.GetString("skins"));
 			if (allSkins.lasers.Count == 3)
 			{
 				allSkins.lasers.AddRange(new Laser[]{
@@ -615,7 +829,7 @@ public class GameController : MonoBehaviour
 
         else
         {
-            allSkins = new Root();
+            allSkins = new SkinsRoot();
             allSkins.skins = new List<Skin>() {
                 new Skin{
                         name= "Beige Alien",
@@ -730,8 +944,8 @@ public class GameController : MonoBehaviour
             };
             //Dictionary<string, List<Dictionary<string, string>>>
             //string j = "{\"skins\= [{\name\= \"Alien Beige\", \image\= \"AlienBeige_stand\", \price\= 0, \buyed\= true, \selected\= true}, {\name\= \"Alien Blue\", \image\= \"AlienBlue_stand\", \price\= 30000, \buyed\= false, \selected\= false}, {\name\= \"Alien Green\", \image\= \"AlienGreen_stand\", \price\= 50000, \buyed\= false, \selected\= false}, {\name\= \"Alien Pink\", \image\= \"AlienPink_stand\", \price\= 70000, \buyed\= false, \selected\= false}, {\name\= \"Alien Yellow\", \image\= \"AlienYellow_stand\", \price\= 100000, \buyed\= false, \selected\= false}], \"backgrounds\= [{\name\= \"Blue Land\", \image\= \"BG_Blue_land\", \price\= 0, \buyed\= true, \selected\= true}, {\name\= \"Blue Grass\", \image\= \"BG_Blue_grass\", \price\= 20000, \buyed\= false, \selected\= false}, {\name\= \"Blue Shroom\", \image\= \"BG_Blue_shroom\", \price\= 20000, \buyed\= false, \selected\= false}, {\name\= \"Colored Land\", \image\= \"BG_Colored_land\", \price\= 35000, \buyed\= false, \selected\= false}, {\name\= \"Colored Grass\", \image\= \"BG_Colored_grass\", \price\= 50000, \buyed\= false, \selected\= false}, {\name\= \"Colored Desert\", \image\= \"BG_Colored_desert\", \price\= 80000, \buyed\= false, \selected\= false}, {\name\= \"Colored Shroom\", \image\= \"BG_Colored_shroom\", \price\= 80000, \buyed\= false, \selected\= false}], \"lasers\= [{\name\= \"Blue Laser\", \image\= \"sp=LaserBlue9\", \price\= 0, \buyed\= true, \selected\= true}, {\name\= \"Red Laser\", \image\= \"sp=LaserRed9\", \price\= 40000, \buyed\= false, \selected\= false}, {\name\= \"Green Laser\", \image\= \"sp=LaserGreen9\", \price\= 60000, \buyed\= false, \selected\= false}]}";
-            //Root x = JsonUtility.FromJson<Root>(jsonFile.text);
-            //Debug.Log(JsonUtility.FromJson<Root>(jsonFile.text));
+            //SkinsRoot x = JsonUtility.FromJson<SkinsRoot>(jsonFile.text);
+            //Debug.Log(JsonUtility.FromJson<SkinsRoot>(jsonFile.text));
             //foreach (string key in x.Keys)
             //{
             //    Debug.Log(key);
@@ -872,10 +1086,15 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(lastMenu);
     }
 
+    public void LoadLevelMenu()
+    {
+        SceneManager.LoadScene("Levels");
+    }
+
     public void UpdateScore(int s)
     {
         score = score + s;
-        scoreText.GetComponent<TMPro.TextMeshPro>().text = score.ToString();
+        scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
     }
     [System.Serializable]
     public class Skin    {
@@ -905,14 +1124,29 @@ public class GameController : MonoBehaviour
     }
 
     [System.Serializable]
-    public class Root    {
+    public class SkinsRoot    {
         public List<Skin> skins = new List<Skin>(); 
         public List<Background> backgrounds = new List<Background>(); 
         public List<Laser> lasers = new List<Laser>(); 
     }
 
+
+    [System.Serializable]
+    public class Level    {
+        public int id;
+        public string page;
+        public string bgSprite;
+        public string obstclSprite;
+        public int difficulty;
+    }
+
+    [System.Serializable]
+    public class LevelsRoot    {
+        public List<Level> levels = new List<Level>();
+    }
+
     [System.Serializable]
     public class Options    {
-        public bool joystick; 
+        public bool joystick;
     }
 }

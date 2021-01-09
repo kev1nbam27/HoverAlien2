@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnObjects : MonoBehaviour
 {
@@ -43,8 +44,13 @@ public class SpawnObjects : MonoBehaviour
             yield return new WaitForSeconds (obstacleWaveWait);
             j = j + 1;
         }
-        transform.GetComponent<GameController>().currentLevel = transform.GetComponent<GameController>().currentLevel + 1;
-        transform.GetComponent<GameController>().SaveCurrentLevel();
+        if (GameController.activeLevelID == transform.GetComponent<GameController>().currentLevel)
+        {
+            transform.GetComponent<GameController>().currentLevel = transform.GetComponent<GameController>().currentLevel + 1;
+            transform.GetComponent<GameController>().SaveCurrentLevel();
+        }
+        GameController.menu = "Start";
+        SceneManager.LoadScene("Menu");
     }
 
     private void spawnCoin(){

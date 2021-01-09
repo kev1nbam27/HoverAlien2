@@ -2304,6 +2304,7 @@ MonoBehaviour:
   coinRespawnTime: 0.25
   obstacleCount: 5
   obstacleWaveWait: 5
+  obstacleWaveCount: 10
 --- !u!114 &1976712805
 MonoBehaviour:
   m_ObjectHideFlags: 0

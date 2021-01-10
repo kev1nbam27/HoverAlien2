@@ -47,6 +47,8 @@ public class GameController : MonoBehaviour
     public static int activeLevelID = -27;
     public static Level activeLevel;
     public GameObject levelText;
+
+    public SceneFade sceneFade;
     
     void OnEnable ()
     {
@@ -461,8 +463,6 @@ public class GameController : MonoBehaviour
 
             SaveLevels();
         }
-        
-        Debug.Log(activeLevelID);
         activeLevel = allLevels.levels[activeLevelID];
     }
 
@@ -525,7 +525,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.Save();
         retried = false;
         menu = "GameOver";
-        SceneManager.LoadScene("Menu");
+
+        StartCoroutine(sceneFade.LoadScene("Menu"));
     }
 
     public void LevelCompleted()
@@ -536,13 +537,14 @@ public class GameController : MonoBehaviour
             SaveCurrentLevel();
         }
         menu = "LevelCompleted";
-        SceneManager.LoadScene("Menu");
+        
+        StartCoroutine(sceneFade.LoadScene("Menu"));
     }
 
     public void AdCompleted()
     {
         retried = true;
-        SceneManager.LoadScene("Play");
+        StartCoroutine(sceneFade.LoadScene("Play"));
     }
 
     public void ControlButtonClicked(Button btn)
@@ -635,7 +637,7 @@ public class GameController : MonoBehaviour
                 if (adsEnabled)
                 {
                     adsButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "            Ads enabled";
-                    adsButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
+                    //adsButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
                 }
 
                 else
@@ -1131,7 +1133,7 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("Play");     
+        StartCoroutine(sceneFade.LoadScene("Play"));    
     }
 
     public void LoadMenu()

@@ -9,12 +9,16 @@ public class LevelLoader : MonoBehaviour
     public GameObject levelPrefab;
     public GameController gameController;
 
+    public SceneFade sceneFade;
+
     //public class SkinsRoot{};
     // Start is called before the first frame update
     void OnEnable()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         GameController.LevelsRoot allLevels = gameController.allLevels;
+
+        sceneFade = GameObject.FindWithTag("SceneFade").GetComponent<SceneFade>();
 
         if (transform.childCount > 0)
         {
@@ -68,6 +72,6 @@ public class LevelLoader : MonoBehaviour
         GameController.LevelsRoot allLevels = gameController.allLevels;
         
         GameController.activeLevelID = int.Parse(button.name);
-        SceneManager.LoadScene("Play");
+        StartCoroutine(sceneFade.LoadScene("Play"));
     }
 }

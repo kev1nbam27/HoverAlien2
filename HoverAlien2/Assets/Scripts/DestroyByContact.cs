@@ -27,6 +27,8 @@ public class DestroyByContact : MonoBehaviour
         if (other.tag == "Laser")
         {
             GameObject e = Instantiate(explosion) as GameObject;
+            ParticleSystem.ShapeModule es = e.GetComponent<ParticleSystem>().shape;
+            es.texture = Resources.Load<Texture2D>(GameController.activeLevel.obstclSprite);
             e.transform.position = transform.position;
             GameObject s = Instantiate(starCoinPrefab) as GameObject;
             s.transform.position = new Vector3(transform.position.x, transform.position.y, -3F);
@@ -37,7 +39,7 @@ public class DestroyByContact : MonoBehaviour
 
         else if (other.tag == "Player")
         {
-            gameController.GetComponent<GameController>().GameOverRetry();
+            gameController.GetComponent<GameController>().GameOver();
         }
     }
 }

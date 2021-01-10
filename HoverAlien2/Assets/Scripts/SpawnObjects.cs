@@ -7,6 +7,9 @@ public class SpawnObjects : MonoBehaviour
 {
     public GameObject obstaclePrefab;
     public GameObject coinPrefab;
+
+    public GameObject finish;
+
     public float obstacleRespawnTime = 0.5f;
     public float coinRespawnTime = 0.5f;
     public int obstacleCount;
@@ -19,6 +22,11 @@ public class SpawnObjects : MonoBehaviour
     void Start() {
         obstacleWaveWait = obstacleWaveWait / 2;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+        #if UNITY_EDITOR
+        obstacleWaveCount = 2;
+        #endif
+
         StartCoroutine(obstacleWave());
         StartCoroutine(coinWave());
     }
@@ -32,10 +40,11 @@ public class SpawnObjects : MonoBehaviour
         GameObject o = Instantiate(obstaclePrefab) as GameObject;
         o.transform.position = new Vector2(screenBounds.x * 2 + transform.position.x, Random.Range(-screenBounds.y + o.GetComponent<SpriteRenderer>().bounds.size.y / 2, screenBounds.y - o.GetComponent<SpriteRenderer>().bounds.size.y / 2));
         o.GetComponent<DestroyByContact>().screenBounds = screenBounds;
+        o.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(GameController.activeLevel.obstclSprite);
     }
     IEnumerator obstacleWave(){
         int j = 0;
-        while(j<=obstacleWaveCount){
+        while(j < obstacleWaveCount){
             for (int i = 0; i < obstacleCount; i++)
             {
                 yield return new WaitForSeconds(obstacleRespawnTime);
@@ -44,13 +53,8 @@ public class SpawnObjects : MonoBehaviour
             yield return new WaitForSeconds (obstacleWaveWait);
             j = j + 1;
         }
-        if (GameController.activeLevelID == transform.GetComponent<GameController>().currentLevel)
-        {
-            transform.GetComponent<GameController>().currentLevel = transform.GetComponent<GameController>().currentLevel + 1;
-            transform.GetComponent<GameController>().SaveCurrentLevel();
-        }
-        GameController.menu = "Start";
-        SceneManager.LoadScene("Menu");
+        GameObject f = Instantiate(finish) as GameObject;
+        f.transform.position = new Vector2(screenBounds.x * 2 + transform.position.x, 0);
     }
 
     private void spawnCoin(){

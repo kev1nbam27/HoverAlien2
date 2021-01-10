@@ -123,6 +123,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &22873641
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 995820796508986430, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_Name
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986430, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995820796508986431, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
 --- !u!1 &498582073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,6 +2361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 6203536672226671135, guid: 87556571e583b630180b67a274ad2ef2, type: 3}
   coinPrefab: {fileID: 1456792608568791560, guid: fa55133d3539aed28b620665eba558cc, type: 3}
+  finish: {fileID: 995820796508986430, guid: b4a263636d7b9e294821df2b556aa6ad, type: 3}
   obstacleRespawnTime: 0.25
   coinRespawnTime: 0.25
   obstacleCount: 5

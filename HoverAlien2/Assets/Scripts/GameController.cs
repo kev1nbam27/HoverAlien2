@@ -88,6 +88,14 @@ public class GameController : MonoBehaviour
                 scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1);
             }
 
+            else if (menu == "LevelCompleted")
+            {
+                highscore = PlayerPrefs.GetInt("highscore", 0);
+                playButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Continue";
+                titleText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level Completed";
+                scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1);
+            }
+
             LoadLevels();
             background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
@@ -149,13 +157,13 @@ public class GameController : MonoBehaviour
             }
 
             scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
-            levelText.GetComponent<TMPro.TextMeshProUGUI>().text = (activeLevelID + 1).ToString();
+            levelText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1).ToString();
 
             LoadSkins();
             LoadUserOptions();
             LoadAdsOptions();
             LoadLevels();
-            Debug.Log(allSkins.skins[0].image);
+
             foreach (Skin s in allSkins.skins)
             {
                 if (s.selected == true)
@@ -520,6 +528,17 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void LevelCompleted()
+    {
+        if (activeLevelID == currentLevel)
+        {
+            currentLevel = currentLevel + 1;
+            SaveCurrentLevel();
+        }
+        menu = "LevelCompleted";
+        SceneManager.LoadScene("Menu");
+    }
+
     public void AdCompleted()
     {
         retried = true;
@@ -535,16 +554,12 @@ public class GameController : MonoBehaviour
         {
             controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: On";
             controlButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
-            //tiltingOptionsButton.SetActive(false);
-            //joystickOptionsButton.SetActive(true);
         }
 
         else
         {
             controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: Off";
             controlButtonText.GetComponentInParent<Image>().color = new Color(190f / 255f, 251f / 255f, 255f / 255f);
-            //tiltingOptionsButton.SetActive(true);
-            //joystickOptionsButton.SetActive(false);
         }
 
     }
@@ -576,16 +591,12 @@ public class GameController : MonoBehaviour
                 {
                     controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: On";
                     controlButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
-                    //tiltingOptionsButton.SetActive(false);
-                    //joystickOptionsButton.SetActive(true);
                 }
 
                 else
                 {
                     controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: Off";
                     controlButtonText.GetComponentInParent<Image>().color = new Color(190f / 255f, 251f / 255f, 255f / 255f);
-                    //tiltingOptionsButton.SetActive(true);
-                    //joystickOptionsButton.SetActive(false);
                 }
             }
         }
@@ -625,16 +636,12 @@ public class GameController : MonoBehaviour
                 {
                     adsButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "            Ads enabled";
                     adsButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
-                    //tiltingOptionsButton.SetActive(false);
-                    //joystickOptionsButton.SetActive(true);
                 }
 
                 else
                 {
                     adsButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "            Ads disabled";
                     adsButtonText.GetComponentInParent<Image>().color = new Color(190f / 255f, 251f / 255f, 255f / 255f);
-                    //tiltingOptionsButton.SetActive(true);
-                    //joystickOptionsButton.SetActive(false);
                 }
             }
         }
@@ -661,11 +668,8 @@ public class GameController : MonoBehaviour
 
     void LoadSkins()
     {
-        Debug.Log(PlayerPrefs.GetString("skins", ""));
-        //Debug.Log(JsonUtility.ToJson(allSkins));
         if (PlayerPrefs.GetString("skins", "Felix") != "Felix")
         {
-            Debug.Log(PlayerPrefs.GetString("skins"));
             allSkins = JsonConvert.DeserializeObject<SkinsRoot>(PlayerPrefs.GetString("skins"));
 			if (allSkins.lasers.Count == 3)
 			{
@@ -1031,22 +1035,8 @@ public class GameController : MonoBehaviour
                         selected = false
                     },
             };
-            //Dictionary<string, List<Dictionary<string, string>>>
-            //string j = "{\"skins\= [{\name\= \"Alien Beige\", \image\= \"AlienBeige_stand\", \price\= 0, \buyed\= true, \selected\= true}, {\name\= \"Alien Blue\", \image\= \"AlienBlue_stand\", \price\= 30000, \buyed\= false, \selected\= false}, {\name\= \"Alien Green\", \image\= \"AlienGreen_stand\", \price\= 50000, \buyed\= false, \selected\= false}, {\name\= \"Alien Pink\", \image\= \"AlienPink_stand\", \price\= 70000, \buyed\= false, \selected\= false}, {\name\= \"Alien Yellow\", \image\= \"AlienYellow_stand\", \price\= 100000, \buyed\= false, \selected\= false}], \"backgrounds\= [{\name\= \"Blue Land\", \image\= \"BG_Blue_land\", \price\= 0, \buyed\= true, \selected\= true}, {\name\= \"Blue Grass\", \image\= \"BG_Blue_grass\", \price\= 20000, \buyed\= false, \selected\= false}, {\name\= \"Blue Shroom\", \image\= \"BG_Blue_shroom\", \price\= 20000, \buyed\= false, \selected\= false}, {\name\= \"Colored Land\", \image\= \"BG_Colored_land\", \price\= 35000, \buyed\= false, \selected\= false}, {\name\= \"Colored Grass\", \image\= \"BG_Colored_grass\", \price\= 50000, \buyed\= false, \selected\= false}, {\name\= \"Colored Desert\", \image\= \"BG_Colored_desert\", \price\= 80000, \buyed\= false, \selected\= false}, {\name\= \"Colored Shroom\", \image\= \"BG_Colored_shroom\", \price\= 80000, \buyed\= false, \selected\= false}], \"lasers\= [{\name\= \"Blue Laser\", \image\= \"sp=LaserBlue9\", \price\= 0, \buyed\= true, \selected\= true}, {\name\= \"Red Laser\", \image\= \"sp=LaserRed9\", \price\= 40000, \buyed\= false, \selected\= false}, {\name\= \"Green Laser\", \image\= \"sp=LaserGreen9\", \price\= 60000, \buyed\= false, \selected\= false}]}";
-            //SkinsRoot x = JsonUtility.FromJson<SkinsRoot>(jsonFile.text);
-            //Debug.Log(JsonUtility.FromJson<SkinsRoot>(jsonFile.text));
-            //foreach (string key in x.Keys)
-            //{
-            //    Debug.Log(key);
-            //}
-            //Debug.Log("");
-            Debug.Log(JsonConvert.SerializeObject(allSkins));
-            Debug.Log(allSkins.backgrounds.Count);
             SaveSkins();
-            Debug.Log(JsonConvert.SerializeObject(allSkins));
         }
-        Debug.Log(JsonConvert.SerializeObject(allSkins));
-
     }
 
     public void SaveSkins()

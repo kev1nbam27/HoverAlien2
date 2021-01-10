@@ -453,7 +453,8 @@ public class GameController : MonoBehaviour
 
             SaveLevels();
         }
-
+        
+        Debug.Log(activeLevelID);
         activeLevel = allLevels.levels[activeLevelID];
     }
 

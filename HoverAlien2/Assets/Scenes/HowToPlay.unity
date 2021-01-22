@@ -337,7 +337,7 @@ RectTransform:
   m_Children:
   - {fileID: 1209282565}
   m_Father: {fileID: 858054412}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -575,7 +575,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 858054412}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -940,6 +940,7 @@ MonoBehaviour:
     lasers: []
   optionsObject:
     joystick: 0
+  adsEnabled: 0
   highscore: 0
   money: 0
   joystickObject: {fileID: 0}
@@ -955,9 +956,17 @@ MonoBehaviour:
   backgroundSprite: {fileID: 0}
   laserSprite: {fileID: 0}
   controlButtonText: {fileID: 2045801129}
+  adsButtonText: {fileID: 0}
   tiltingOptionsButton: {fileID: 464108101}
   joystickOptionsButton: {fileID: 1555186447}
+  retry: 1
+  retryPopUp: {fileID: 0}
   errorMessage: {fileID: 0}
+  allLevels:
+    levels: []
+  currentLevel: 0
+  levelText: {fileID: 0}
+  sceneFade: {fileID: 0}
 --- !u!4 &791076882
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,12 +1011,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 684685634}
-  - {fileID: 1078152504}
   - {fileID: 1664781712}
   - {fileID: 674749481}
   - {fileID: 1055958369}
   - {fileID: 1555186448}
   - {fileID: 464108102}
+  - {fileID: 1078152504}
   m_Father: {fileID: 122545564}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1169,7 +1178,7 @@ RectTransform:
   m_Children:
   - {fileID: 1143159706}
   m_Father: {fileID: 858054412}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1199,7 +1208,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1410,7 +1419,7 @@ RectTransform:
   m_Children:
   - {fileID: 2045801130}
   m_Father: {fileID: 858054412}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2017,7 +2026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1055958368}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1216704115
@@ -2067,7 +2076,7 @@ RectTransform:
   m_Children:
   - {fileID: 1676946401}
   m_Father: {fileID: 858054412}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2305,7 +2314,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 858054412}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

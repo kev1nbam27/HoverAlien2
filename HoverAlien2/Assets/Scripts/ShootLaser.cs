@@ -49,7 +49,7 @@ public class ShootLaser : MonoBehaviour
 
             }
 
-            else if (Input.GetKey("left ctrl") || Input.GetKey("right ctrl"))
+            else if (Input.GetKey("left ctrl") || Input.GetKey("right ctrl") || Input.GetButton("Fire1_joystick"))
             {
                 nextFire = Time.time + fireRate;
                 GameObject laserClone = Instantiate(laser, transform.position + new Vector3(0.75F, 0, 0), Quaternion.Euler(0, 0, -90));

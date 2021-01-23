@@ -64,6 +64,8 @@ public class GameController : MonoBehaviour
         {
             menu = "Start";
             lastMenu = "Start";
+            Input.GetJoystickNames();
+            
             if (PlayerPrefs.GetString("HowToPlay", "Felix") != "Felix")
             {
                 SceneManager.LoadScene("Menu");

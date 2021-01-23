@@ -22,7 +22,6 @@ public class PlayerMover : MonoBehaviour
 
     void Update()
     {
-#if UNITY_EDITOR
     //get the Input from Horizontal axis
     float horizontalInput = Input.GetAxis("Horizontal");
     //get the Input from Vertical axis
@@ -30,7 +29,7 @@ public class PlayerMover : MonoBehaviour
 
     //update the position
     transform.position = transform.position + new Vector3(horizontalInput * movementSpeed * Time.deltaTime, verticalInput * movementSpeed * Time.deltaTime, 0);
-#endif
+
         if (joystick == true)
         {
             Vector3 dir = Vector3.zero;

@@ -23,17 +23,17 @@ public class SpawnObjects : MonoBehaviour
         obstacleWaveWait = obstacleWaveWait / 2;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
+        obstacleCount = GameController.activeLevel.difficulty;
+        obstacleWaveCount = GameController.activeLevel.waveCount;
+
         #if UNITY_EDITOR
         obstacleWaveCount = 2;
         #endif
 
         StartCoroutine(obstacleWave());
         StartCoroutine(coinWave());
-    }
 
-    void Update()
-    {
-        obstacleCount = GameController.activeLevel.difficulty;
+        
     }
 
     private void spawnObstacle(){

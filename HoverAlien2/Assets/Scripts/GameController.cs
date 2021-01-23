@@ -517,6 +517,11 @@ public class GameController : MonoBehaviour
         {
             activeLevelID = currentLevel;
         }
+        
+        if (allLevels != null)
+        {
+            activeLevel = allLevels.levels[activeLevelID];
+        }
     }
 
     public void SaveCurrentLevel()
@@ -562,8 +567,15 @@ public class GameController : MonoBehaviour
         {
             currentLevel = currentLevel + 1;
             SaveCurrentLevel();
+            menu = "LevelCompleted";
         }
-        menu = "LevelCompleted";
+
+        else
+        {
+            menu = "Start";
+        }
+
+        
         
         StartCoroutine(sceneFade.LoadScene("Menu"));
     }
@@ -1292,6 +1304,7 @@ public class GameController : MonoBehaviour
         public string obstclSprite;
         public int difficulty;
         public float speed;
+        public int waveCount;
     }
 
     [System.Serializable]

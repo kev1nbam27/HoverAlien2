@@ -1305,6 +1305,9 @@ public class GameController : MonoBehaviour
         public int difficulty;
         public float speed;
         public int waveCount;
+        public float waveWait;
+        public float obstacleRespawnTime;
+        public float coinRespawnTime;
     }
 
     [System.Serializable]

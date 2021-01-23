@@ -20,11 +20,13 @@ public class SpawnObjects : MonoBehaviour
 
     // Use this for initialization
     void Start() {
-        obstacleWaveWait = obstacleWaveWait / 2;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
         obstacleCount = GameController.activeLevel.difficulty;
         obstacleWaveCount = GameController.activeLevel.waveCount;
+        obstacleWaveWait = GameController.activeLevel.waveWait;
+        obstacleRespawnTime = GameController.activeLevel.obstacleRespawnTime;
+        coinRespawnTime = GameController.activeLevel.coinRespawnTime;
 
         #if UNITY_EDITOR
         obstacleWaveCount = 2;

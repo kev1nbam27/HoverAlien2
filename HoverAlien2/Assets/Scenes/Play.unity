@@ -1107,6 +1107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1405,6 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1700,6 +1702,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1673419727
 Canvas:
   m_ObjectHideFlags: 0
@@ -2201,7 +2204,7 @@ MonoBehaviour:
   obstacleRespawnTime: 0.25
   coinRespawnTime: 0.25
   obstacleCount: 5
-  obstacleWaveWait: 5
+  obstacleWaveWait: 2.5
   obstacleWaveCount: 10
 --- !u!114 &1976712805
 MonoBehaviour:
@@ -2240,11 +2243,11 @@ MonoBehaviour:
   adsButtonText: {fileID: 0}
   tiltingOptionsButton: {fileID: 0}
   joystickOptionsButton: {fileID: 0}
+  framerateButtonText: {fileID: 0}
+  framerate: 0
   retry: 1
   retryPopUp: {fileID: 1729399100}
   errorMessage: {fileID: 0}
-  allLevels:
-    levels: []
   currentLevel: 0
   levelText: {fileID: 1723414667}
   sceneFade: {fileID: 7664498706867697907}

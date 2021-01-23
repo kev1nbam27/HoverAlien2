@@ -35,6 +35,9 @@ public class GameController : MonoBehaviour
     public GameObject tiltingOptionsButton;
     public GameObject joystickOptionsButton;
 
+    public GameObject framerateButtonText;
+    public int framerate;
+
     public bool retry = true;
     public static bool retried;
     public GameObject retryPopUp;
@@ -54,6 +57,8 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1;
         LoadCurrentLevel();
+
+        LoadFramerate();
 
         if (SceneManager.GetActiveScene().name == "Start")
         {
@@ -566,6 +571,22 @@ public class GameController : MonoBehaviour
 
     }
 
+     public void FramerateButtonClicked(Button btn)
+    {
+        if (framerate == 60)
+        {
+            framerate = 30;
+        }
+
+        else
+        {
+            framerate = 60;
+        }
+
+        SaveFramerate();
+        LoadFramerate();
+    }
+
     public void AdsButtonClicked(Button btn)
     {
         adsEnabled = !adsEnabled;
@@ -624,6 +645,35 @@ public class GameController : MonoBehaviour
                 player.GetComponent<PlayerMover>().joystick = optionsObject.joystick;
             }
         }
+    }
+
+    void LoadFramerate()
+    {
+        if (PlayerPrefs.GetInt("framerate", -27) != -27)
+        {
+            framerate = PlayerPrefs.GetInt("framerate");
+
+            if (SceneManager.GetActiveScene().name == "Options")
+            {
+                framerateButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Framerate: " +framerate.ToString()+ " FPS";
+            }
+
+            Application.targetFrameRate = framerate;
+        }
+
+        else
+        {
+            framerate = 30;
+            Application.targetFrameRate = framerate;
+            SaveFramerate();
+        }
+    }
+
+    public void SaveFramerate()
+    {
+        PlayerPrefs.SetInt("framerate", framerate);
+        PlayerPrefs.Save();
+        LoadFramerate();
     }
 
     void LoadAdsOptions()

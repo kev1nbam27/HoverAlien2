@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
 using UnityEngine.Advertisements;
+using Unity.RemoteConfig;
 
 
 
@@ -45,14 +46,31 @@ public class GameController : MonoBehaviour
 
     public GameObject errorMessage;
     
-    public LevelsRoot allLevels;
+    public static LevelsRoot allLevels;
     public int currentLevel;
     public static int activeLevelID = -27;
     public static Level activeLevel;
     public GameObject levelText;
 
     public SceneFade sceneFade;
+
+    public struct userAttributes {};
+    public struct appAttributes {};
     
+    void Awake()
+    {   
+        if (SceneManager.GetActiveScene().name == "Start")
+        {
+            ConfigManager.FetchCompleted += LoadLevels;
+            ConfigManager.FetchConfigs<userAttributes, appAttributes>(new userAttributes(), new appAttributes());
+        }
+    }
+
+    void OnDestroy()
+    {
+        ConfigManager.FetchCompleted -= LoadLevels;
+    }
+
     void OnEnable ()
     {
         Time.timeScale = 1;
@@ -60,25 +78,7 @@ public class GameController : MonoBehaviour
 
         LoadFramerate();
 
-        if (SceneManager.GetActiveScene().name == "Start")
-        {
-            menu = "Start";
-            lastMenu = "Start";
-            Input.GetJoystickNames();
-            
-            if (PlayerPrefs.GetString("HowToPlay", "Felix") != "Felix")
-            {
-                SceneManager.LoadScene("Menu");
-            }
-            
-            else
-            {
-                PlayerPrefs.SetString("HowToPlay", "false");
-                SceneManager.LoadScene("HowToPlay");
-            }
-        }
-
-        else if (SceneManager.GetActiveScene().name == "Menu")
+        if (SceneManager.GetActiveScene().name == "Menu")
         {
             if (menu == "GameOver")
             {
@@ -105,7 +105,6 @@ public class GameController : MonoBehaviour
                 scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1);
             }
 
-            LoadLevels();
             background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
@@ -117,7 +116,6 @@ public class GameController : MonoBehaviour
             moneyText.GetComponent<TMPro.TextMeshProUGUI>().text = money.ToString();
             LoadSkins();
 
-            LoadLevels();
             background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
@@ -129,7 +127,13 @@ public class GameController : MonoBehaviour
             moneyText.GetComponent<TMPro.TextMeshProUGUI>().text = money.ToString();
             LoadSkins();
 
-            LoadLevels();
+            background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+            background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+        }
+
+        else if (SceneManager.GetActiveScene().name == "Levels")
+        {
             background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
@@ -141,15 +145,6 @@ public class GameController : MonoBehaviour
             LoadUserOptions();
             LoadAdsOptions();
 
-            LoadLevels();
-            background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
-            background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
-            background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
-        }
-
-        else if (SceneManager.GetActiveScene().name == "Levels")
-        {
-            LoadLevels();
             background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
@@ -171,7 +166,6 @@ public class GameController : MonoBehaviour
             LoadSkins();
             LoadUserOptions();
             LoadAdsOptions();
-            LoadLevels();
 
             foreach (Skin s in allSkins.skins)
             {
@@ -194,11 +188,37 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void LoadLevels()
+    void LoadLevels(ConfigResponse response)
+    {
+        allLevels = JsonConvert.DeserializeObject<LevelsRoot>(ConfigManager.appConfig.GetJson("Levels"));
+        activeLevel = allLevels.levels[activeLevelID];
+
+
+        if (SceneManager.GetActiveScene().name == "Start")
+        {
+            menu = "Start";
+            lastMenu = "Start";
+            Input.GetJoystickNames();
+
+            if (PlayerPrefs.GetString("HowToPlay", "Felix") != "Felix")
+            {
+                SceneManager.LoadScene("Menu");
+            }
+            
+            else
+            {
+                PlayerPrefs.SetString("HowToPlay", "false");
+                SceneManager.LoadScene("HowToPlay");
+            }
+        }
+    }
+
+    public void LoadLevels1()
     {
         if (PlayerPrefs.GetString("levels", "Felix") != "Felix")
         {
             allLevels = JsonConvert.DeserializeObject<LevelsRoot>(PlayerPrefs.GetString("levels"));
+            Debug.Log(PlayerPrefs.GetString("levels"));
         }
 
         else
@@ -468,12 +488,12 @@ public class GameController : MonoBehaviour
                     },
             };
 
-            SaveLevels();
+            SaveLevels1();
         }
         activeLevel = allLevels.levels[activeLevelID];
     }
 
-    public void SaveLevels()
+    public void SaveLevels1()
     {
         string json = JsonConvert.SerializeObject(allLevels);
         PlayerPrefs.SetString("levels", json);
@@ -1271,6 +1291,7 @@ public class GameController : MonoBehaviour
         public string bgSprite;
         public string obstclSprite;
         public int difficulty;
+        public float speed;
     }
 
     [System.Serializable]

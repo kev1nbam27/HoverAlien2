@@ -12,6 +12,9 @@ public class BackgroundLoop : MonoBehaviour{
 
     void Start(){
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        scrollSpeed = GameController.activeLevel.speed;
+
         mainCamera = gameObject.GetComponent<Camera>();
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         foreach(GameObject obj in levels){

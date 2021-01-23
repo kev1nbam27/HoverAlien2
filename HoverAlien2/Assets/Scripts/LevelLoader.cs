@@ -16,7 +16,7 @@ public class LevelLoader : MonoBehaviour
     void OnEnable()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-        GameController.LevelsRoot allLevels = gameController.allLevels;
+        GameController.LevelsRoot allLevels = GameController.allLevels;
 
         sceneFade = GameObject.FindWithTag("SceneFade").GetComponent<SceneFade>();
 
@@ -69,7 +69,7 @@ public class LevelLoader : MonoBehaviour
 
     public void SelectLevel(Button button)
     {
-        GameController.LevelsRoot allLevels = gameController.allLevels;
+        GameController.LevelsRoot allLevels = GameController.allLevels;
         
         GameController.activeLevelID = int.Parse(button.name);
         StartCoroutine(sceneFade.LoadScene("Play"));

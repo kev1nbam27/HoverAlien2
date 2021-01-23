@@ -1,0 +1,209 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
+  m_Name: RemoteConfigDataStoreAsset
+  m_EditorClassIdentifier: 
+  _rsKeyList: "[\n  {\n    \"metadata\": {\n      \"entityId\": \"a75fc0e4-9580-425b-9d14-8c8a450a3e1c\"\n   
+    },\n    \"rs\": {\n      \"key\": \"Levels\",\n      \"type\": \"json\",\n     
+    \"value\": {\n        \"levels\": [\n          {\n            \"id\": 0,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 5,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 1,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 6,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 2,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 7,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 3,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 8,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 4,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 9,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 5,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 10,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 6,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 11,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 7,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 12,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 8,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 13,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 9,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 14,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 10,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 15,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 11,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 16,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 12,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 17,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 13,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 18,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 14,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 19,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 15,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 20,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 16,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 21,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 17,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 22,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 18,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 23,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 19,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 24,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 20,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 25,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 21,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 26,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 22,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 27,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 23,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 28,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 24,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 29,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 25,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 30,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 26,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 31,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 27,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 32,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 28,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 33,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 29,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 34,\n           
+    \"speed\": 21.75\n          }\n        ]\n      }\n    }\n  }\n]"
+  _rsLastCachedKeyList: "[\n  {\n    \"metadata\": {\n      \"entityId\": \"a75fc0e4-9580-425b-9d14-8c8a450a3e1c\"\n   
+    },\n    \"rs\": {\n      \"key\": \"Levels\",\n      \"type\": \"json\",\n     
+    \"value\": {\n        \"levels\": [\n          {\n            \"id\": 0,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 5,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 1,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 6,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 2,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 7,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 3,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 8,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 4,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 9,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 5,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 10,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 6,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 11,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 7,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 12,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 8,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 13,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 9,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 14,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 10,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 15,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 11,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 16,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 12,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 17,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 13,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 18,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 14,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 19,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 15,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 20,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 16,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 21,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 17,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 22,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 18,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 23,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 19,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 24,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 20,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 25,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 21,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 26,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 22,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 27,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 23,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 28,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 24,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 29,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 25,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 30,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 26,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 31,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 27,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 32,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 28,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 33,\n           
+    \"speed\": 21.75\n          },\n          {\n            \"id\": 29,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 34,\n           
+    \"speed\": 21.75\n          }\n        ]\n      }\n    }\n  }\n]"
+  _environments: "[\n  {\n    \"projectId\": \"b190b36e-1f49-4a54-b073-9fb20a1b52c8\",\n   
+    \"name\": \"Production\",\n    \"id\": \"d5f38dd9-1b69-418e-8397-051f55b8a3e5\",\n   
+    \"createdAt\": \"2021-01-23T11:53:41Z\",\n    \"updatedAt\": \"2021-01-23T14:20:42Z\",\n   
+    \"isDefault\": true\n  },\n  {\n    \"projectId\": \"b190b36e-1f49-4a54-b073-9fb20a1b52c8\",\n   
+    \"name\": \"Testing\",\n    \"id\": \"dd0a0ff4-870f-4a99-9d2e-b7d0a6bbf158\",\n   
+    \"createdAt\": \"2021-01-23T12:04:06Z\",\n    \"updatedAt\": \"2021-01-23T14:20:42Z\",\n   
+    \"isDefault\": false\n  }\n]"
+  _rulesList: '[]'
+  _lastCachedRulesList: '[]'

@@ -32,10 +32,17 @@ public class SpawnObjects : MonoBehaviour
         obstacleWaveCount = 2;
         #endif
 
+        float x = obstacleWaveCount * (obstacleRespawnTime * obstacleCount + obstacleWaveWait);
+        float s = GameController.activeLevel.speed * GameController.activeLevel.speed * 2 * 0.032f / 4;
+        float e = 2 * screenBounds.x + x * s;
+        Debug.Log(e);
+
+        //GameObject f = Instantiate(finish) as GameObject;
+        //f.transform.position = new Vector2(x, 0);
+
         StartCoroutine(obstacleWave());
         StartCoroutine(coinWave());
-
-        
+        StartCoroutine(RecordSpeed());
     }
 
     private void spawnObstacle(){
@@ -44,6 +51,7 @@ public class SpawnObjects : MonoBehaviour
         o.GetComponent<DestroyByContact>().screenBounds = screenBounds;
         o.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(GameController.activeLevel.obstclSprite);
     }
+
     IEnumerator obstacleWave(){
         int j = 0;
         while(j < obstacleWaveCount){
@@ -55,6 +63,7 @@ public class SpawnObjects : MonoBehaviour
             yield return new WaitForSeconds (obstacleWaveWait);
             j = j + 1;
         }
+        Debug.Log("finish");
         GameObject f = Instantiate(finish) as GameObject;
         f.transform.position = new Vector2(screenBounds.x * 2 + transform.position.x, 0);
     }
@@ -64,10 +73,17 @@ public class SpawnObjects : MonoBehaviour
         c.transform.position = new Vector2(screenBounds.x * 2 + transform.position.x, Random.Range(-screenBounds.y, screenBounds.y));
         c.GetComponent<CollectCoin>().screenBounds = screenBounds;
     }
+
     IEnumerator coinWave(){
         while(true){
             yield return new WaitForSeconds(coinRespawnTime);
             spawnCoin();
         }
+    }
+
+    IEnumerator RecordSpeed()
+    {
+        yield return new WaitForSeconds(4);
+        Debug.Log(this.transform.position.x);
     }
 }

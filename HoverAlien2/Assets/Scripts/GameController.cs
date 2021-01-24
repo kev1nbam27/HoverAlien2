@@ -52,7 +52,11 @@ public class GameController : MonoBehaviour
     public static Level activeLevel;
     public GameObject levelText;
 
+    public GameObject progressText;
+
     public SceneFade sceneFade;
+
+    Vector3 screenBounds;
 
     public struct userAttributes {};
     public struct appAttributes {};
@@ -63,6 +67,38 @@ public class GameController : MonoBehaviour
         {
             ConfigManager.FetchCompleted += LoadLevels;
             ConfigManager.FetchConfigs<userAttributes, appAttributes>(new userAttributes(), new appAttributes());
+        }
+
+        else
+        {
+            screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        }
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Play")
+        {
+            #if UNITY_EDITOR
+            int waveCount = 2;
+            #else
+            int waveCount = activeLevel.waveCount;
+            #endif
+
+            float x = waveCount * (activeLevel.obstacleRespawnTime * activeLevel.difficulty + activeLevel.waveWait);
+            float s = activeLevel.speed * activeLevel.speed * 2 * 0.032f / 4;
+            float e = 2 * screenBounds.x + x * s;
+            Debug.Log(e);
+            
+            int progress = (int)(this.transform.position.x / e * 100);
+            Debug.Log(progress);
+
+            if (progress > 100)
+            {
+                progress = 100;
+            }
+
+            progressText.GetComponent<TMPro.TextMeshProUGUI>().text = progress.ToString() + "%";
         }
     }
 
@@ -160,7 +196,7 @@ public class GameController : MonoBehaviour
                 score = 0;
             }
 
-            scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
+            scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
             levelText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1).ToString();
 
             LoadSkins();
@@ -1259,7 +1295,7 @@ public class GameController : MonoBehaviour
     public void UpdateScore(int s)
     {
         score = score + s;
-        scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
+        scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
     }
     [System.Serializable]
     public class Skin    {

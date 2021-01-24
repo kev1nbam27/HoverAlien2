@@ -85,6 +85,8 @@ public class BackgroundLoop : MonoBehaviour{
         Vector3 desiredPosition = transform.position + new Vector3(2 * scrollSpeed * scrollSpeed * Time.fixedDeltaTime, 0, 0);
         Vector3 smoothPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, 0.3f);
         transform.position = smoothPosition;
+       // Debug.Log(desiredPosition.x);
+       // Debug.Log(smoothPosition.x);
 
     }
     void LateUpdate(){

@@ -12,194 +12,284 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\n  {\n    \"metadata\": {\n      \"entityId\": \"fb90461a-456e-4b86-a2ff-364d571f3880\"\n   
+  _rsKeyList: "[\n  {\n    \"metadata\": {\n      \"entityId\": \"30459b43-5053-4637-92d3-20c4d2d3164f\"\n   
     },\n    \"rs\": {\n      \"key\": \"Levels\",\n      \"type\": \"json\",\n     
     \"value\": {\n        \"levels\": [\n          {\n            \"id\": 0,\n           
     \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 5,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 1,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 6,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 2,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"speed\": 19.75,\n            \"waveCount\": 5,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.3,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 1,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 6,\n            \"speed\": 1,\n            \"waveCount\": 5,\n           
+    \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.297,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 2,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 7,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 3,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 8,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 4,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"speed\": 30,\n            \"waveCount\": 5,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.294,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 3,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 8,\n            \"speed\": 100,\n            \"waveCount\": 6,\n           
+    \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.291,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 4,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 9,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 5,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 10,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 6,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"speed\": 20.15,\n            \"waveCount\": 6,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.288,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 5,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 10,\n            \"speed\": 20.25,\n            \"waveCount\":
+    6,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.286,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 6,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 11,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 7,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 12,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 8,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"speed\": 20.35,\n            \"waveCount\": 6,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.283,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 7,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 12,\n            \"speed\": 20.45,\n            \"waveCount\":
+    7,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.28,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 8,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 13,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 9,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 14,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 10,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 20.55,\n            \"waveCount\": 7,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.277,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 9,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 14,\n            \"speed\": 20.65,\n            \"waveCount\":
+    7,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.275,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 10,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 15,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 11,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 16,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 12,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 20.75,\n            \"waveCount\": 7,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.272,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 11,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 16,\n            \"speed\": 20.85,\n            \"waveCount\":
+    7,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.269,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 12,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 17,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 13,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 18,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 14,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 20.95,\n            \"waveCount\": 8,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.267,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 13,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 18,\n            \"speed\": 21.05,\n            \"waveCount\":
+    8,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.264,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 14,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 19,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 15,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 20,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 16,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 21.15,\n            \"waveCount\": 8,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.262,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 15,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 20,\n            \"speed\": 21.25,\n            \"waveCount\":
+    8,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.259,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 16,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 21,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 17,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 22,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 18,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 21.35,\n            \"waveCount\": 8,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.257,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 17,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 22,\n            \"speed\": 21.45,\n            \"waveCount\":
+    8,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.255,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 18,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 23,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 19,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 24,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 20,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.55,\n            \"waveCount\": 9,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.252,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 19,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 24,\n            \"speed\": 21.65,\n            \"waveCount\":
+    9,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 20,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 25,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 21,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 26,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 22,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.75,\n            \"waveCount\": 9,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 21,\n            \"page\": \"Page_2\",\n           
+    \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\": \"Ground_DirtHalf\",\n           
+    \"difficulty\": 26,\n            \"speed\": 21.75,\n            \"waveCount\":
+    9,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 22,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 27,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 23,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 28,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 24,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.75,\n            \"waveCount\": 9,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 23,\n            \"page\": \"Page_2\",\n           
+    \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\": \"Ground_DirtHalf\",\n           
+    \"difficulty\": 28,\n            \"speed\": 21.75,\n            \"waveCount\":
+    9,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 24,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 29,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 25,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 30,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 26,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.75,\n            \"waveCount\": 9,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 25,\n            \"page\": \"Page_2\",\n           
+    \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\": \"Ground_DirtHalf\",\n           
+    \"difficulty\": 30,\n            \"speed\": 21.75,\n            \"waveCount\":
+    10,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 26,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 31,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 27,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 32,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 28,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 33,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 29,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.75,\n            \"waveCount\": 10,\n            \"waveWait\":
+    2.5,\n            \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\":
+    0.25\n          },\n          {\n            \"id\": 27,\n            \"page\":
+    \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\":
+    \"Ground_DirtHalf\",\n            \"difficulty\": 32,\n            \"speed\":
+    21.75,\n            \"waveCount\": 10,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 28,\n            \"page\": \"Page_2\",\n           
+    \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\": \"Ground_DirtHalf\",\n           
+    \"difficulty\": 33,\n            \"speed\": 21.75,\n            \"waveCount\":
+    10,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 29,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 34,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          }\n        ]\n     
-    }\n    }\n  }\n]"
-  _rsLastCachedKeyList: "[\n  {\n    \"metadata\": {\n      \"entityId\": \"fb90461a-456e-4b86-a2ff-364d571f3880\"\n   
+    \"speed\": 21.75,\n            \"waveCount\": 10,\n            \"waveWait\":
+    2.5,\n            \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\":
+    0.25\n          }\n        ]\n      }\n    }\n  }\n]"
+  _rsLastCachedKeyList: "[\n  {\n    \"metadata\": {\n      \"entityId\": \"30459b43-5053-4637-92d3-20c4d2d3164f\"\n   
     },\n    \"rs\": {\n      \"key\": \"Levels\",\n      \"type\": \"json\",\n     
     \"value\": {\n        \"levels\": [\n          {\n            \"id\": 0,\n           
     \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 5,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 1,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 6,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 2,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"speed\": 19.75,\n            \"waveCount\": 5,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.3,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 1,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 6,\n            \"speed\": 1,\n            \"waveCount\": 5,\n           
+    \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.297,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 2,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 7,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 3,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 8,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 4,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"speed\": 30,\n            \"waveCount\": 5,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.294,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 3,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 8,\n            \"speed\": 100,\n            \"waveCount\": 6,\n           
+    \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.291,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 4,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 9,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 5,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 10,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 6,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"speed\": 20.15,\n            \"waveCount\": 6,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.288,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 5,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 10,\n            \"speed\": 20.25,\n            \"waveCount\":
+    6,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.286,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 6,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 11,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 7,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 12,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 8,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
+    \"speed\": 20.35,\n            \"waveCount\": 6,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.283,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 7,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 12,\n            \"speed\": 20.45,\n            \"waveCount\":
+    7,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.28,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 8,\n           
+    \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
     \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 13,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 9,\n            \"page\": \"Page_0\",\n            \"bgSprite\": \"BG_Colored_grass\",\n           
-    \"obstclSprite\": \"Ground_GrassHalf\",\n            \"difficulty\": 14,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 10,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 20.55,\n            \"waveCount\": 7,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.277,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 9,\n            \"page\": \"Page_0\",\n           
+    \"bgSprite\": \"BG_Colored_grass\",\n            \"obstclSprite\": \"Ground_GrassHalf\",\n           
+    \"difficulty\": 14,\n            \"speed\": 20.65,\n            \"waveCount\":
+    7,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.275,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 10,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 15,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 11,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 16,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 12,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 20.75,\n            \"waveCount\": 7,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.272,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 11,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 16,\n            \"speed\": 20.85,\n            \"waveCount\":
+    7,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.269,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 12,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 17,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 13,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 18,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 14,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 20.95,\n            \"waveCount\": 8,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.267,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 13,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 18,\n            \"speed\": 21.05,\n            \"waveCount\":
+    8,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.264,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 14,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 19,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 15,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 20,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 16,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 21.15,\n            \"waveCount\": 8,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.262,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 15,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 20,\n            \"speed\": 21.25,\n            \"waveCount\":
+    8,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.259,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 16,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 21,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 17,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 22,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 18,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
+    \"speed\": 21.35,\n            \"waveCount\": 8,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.257,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 17,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 22,\n            \"speed\": 21.45,\n            \"waveCount\":
+    8,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.255,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 18,\n           
+    \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
     \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 23,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 19,\n            \"page\": \"Page_1\",\n            \"bgSprite\": \"BG_Colored_desert\",\n           
-    \"obstclSprite\": \"Ground_SandHalf\",\n            \"difficulty\": 24,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 20,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.55,\n            \"waveCount\": 9,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.252,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 19,\n            \"page\": \"Page_1\",\n           
+    \"bgSprite\": \"BG_Colored_desert\",\n            \"obstclSprite\": \"Ground_SandHalf\",\n           
+    \"difficulty\": 24,\n            \"speed\": 21.65,\n            \"waveCount\":
+    9,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 20,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 25,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 21,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 26,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 22,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.75,\n            \"waveCount\": 9,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 21,\n            \"page\": \"Page_2\",\n           
+    \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\": \"Ground_DirtHalf\",\n           
+    \"difficulty\": 26,\n            \"speed\": 21.75,\n            \"waveCount\":
+    9,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 22,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 27,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 23,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 28,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 24,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.75,\n            \"waveCount\": 9,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 23,\n            \"page\": \"Page_2\",\n           
+    \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\": \"Ground_DirtHalf\",\n           
+    \"difficulty\": 28,\n            \"speed\": 21.75,\n            \"waveCount\":
+    9,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 24,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 29,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 25,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 30,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 26,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.75,\n            \"waveCount\": 9,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 25,\n            \"page\": \"Page_2\",\n           
+    \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\": \"Ground_DirtHalf\",\n           
+    \"difficulty\": 30,\n            \"speed\": 21.75,\n            \"waveCount\":
+    10,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 26,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 31,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 27,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 32,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 28,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
-    \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 33,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          },\n          {\n           
-    \"id\": 29,\n            \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
+    \"speed\": 21.75,\n            \"waveCount\": 10,\n            \"waveWait\":
+    2.5,\n            \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\":
+    0.25\n          },\n          {\n            \"id\": 27,\n            \"page\":
+    \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\":
+    \"Ground_DirtHalf\",\n            \"difficulty\": 32,\n            \"speed\":
+    21.75,\n            \"waveCount\": 10,\n            \"waveWait\": 2.5,\n           
+    \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\": 0.25\n         
+    },\n          {\n            \"id\": 28,\n            \"page\": \"Page_2\",\n           
+    \"bgSprite\": \"BG_Colored_shroom\",\n            \"obstclSprite\": \"Ground_DirtHalf\",\n           
+    \"difficulty\": 33,\n            \"speed\": 21.75,\n            \"waveCount\":
+    10,\n            \"waveWait\": 2.5,\n            \"obstacleRespawnTime\": 0.25,\n           
+    \"coinRespawnTime\": 0.25\n          },\n          {\n            \"id\": 29,\n           
+    \"page\": \"Page_2\",\n            \"bgSprite\": \"BG_Colored_shroom\",\n           
     \"obstclSprite\": \"Ground_DirtHalf\",\n            \"difficulty\": 34,\n           
-    \"speed\": 21.75,\n            \"waveCount\": 10\n          }\n        ]\n     
-    }\n    }\n  }\n]"
+    \"speed\": 21.75,\n            \"waveCount\": 10,\n            \"waveWait\":
+    2.5,\n            \"obstacleRespawnTime\": 0.25,\n            \"coinRespawnTime\":
+    0.25\n          }\n        ]\n      }\n    }\n  }\n]"
   _environments: "[\n  {\n    \"projectId\": \"b190b36e-1f49-4a54-b073-9fb20a1b52c8\",\n   
     \"name\": \"Production\",\n    \"id\": \"d5f38dd9-1b69-418e-8397-051f55b8a3e5\",\n   
     \"createdAt\": \"2021-01-23T11:53:41Z\",\n    \"updatedAt\": \"2021-01-23T14:20:42Z\",\n   

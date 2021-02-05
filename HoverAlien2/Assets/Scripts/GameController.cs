@@ -599,7 +599,7 @@ public class GameController : MonoBehaviour
 
     public void LevelCompleted()
     {
-        if (activeLevelID == currentLevel)
+        if (activeLevelID == currentLevel && activeLevelID != 29)
         {
             currentLevel = currentLevel + 1;
             SaveCurrentLevel();

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public GameObject levelPrefab;
+    public GameObject bonusLevelPrefab;
     public GameController gameController;
 
     public SceneFade sceneFade;
@@ -39,11 +40,26 @@ public class LevelLoader : MonoBehaviour
 
     private void CreateLevelObject(GameController.Level level, Transform container)
     {
-        Transform levelObject = Instantiate(levelPrefab.transform, container);
+        Transform levelObject;
+
+        if (level.id != 30)
+        {
+            levelObject = Instantiate(levelPrefab.transform, container);
+        }
+
+        else
+        {
+            levelObject = Instantiate(bonusLevelPrefab.transform, container);
+        }
         
         Button button = levelObject.GetChild(0).GetComponent<Button>();
         button.name = level.id.ToString();
+
         button.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = (level.id + 1).ToString();
+        if (level.id == 30)
+        {
+            button.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = "Endless Mode";
+        }
 
         if (level.id < gameController.currentLevel)
         {

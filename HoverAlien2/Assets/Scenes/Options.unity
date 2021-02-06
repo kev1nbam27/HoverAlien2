@@ -1181,6 +1181,7 @@ MonoBehaviour:
   joystickObject: {fileID: 0}
   titleText: {fileID: 674749480}
   scoreText: {fileID: 0}
+  modeText: {fileID: 0}
   playButtonText: {fileID: 0}
   moneyText: {fileID: 0}
   player: {fileID: 0}
@@ -1203,6 +1204,7 @@ MonoBehaviour:
   levelText: {fileID: 0}
   progressText: {fileID: 0}
   sceneFade: {fileID: 0}
+  bonusTab: {fileID: 0}
 --- !u!4 &791076882
 Transform:
   m_ObjectHideFlags: 0
@@ -2583,7 +2585,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v0.0.2 (2)
+  m_text: v0.0.3 (0)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -35,14 +35,18 @@ public class SpawnObjects : MonoBehaviour
         float x = obstacleWaveCount * (obstacleRespawnTime * obstacleCount + obstacleWaveWait);
         float s = GameController.activeLevel.speed * GameController.activeLevel.speed * 2 * 0.032f / 4;
         float e = 2 * screenBounds.x + x * s;
-        Debug.Log(e);
 
         //GameObject f = Instantiate(finish) as GameObject;
         //f.transform.position = new Vector2(x, 0);
 
         StartCoroutine(obstacleWave());
         StartCoroutine(coinWave());
-        StartCoroutine(RecordSpeed());
+    }
+
+    void Update()
+    {
+        if (GameController.activeLevel.id == 30)
+            obstacleCount = 5 + (int)((float)GameController.score / 1000);
     }
 
     private void spawnObstacle(){
@@ -53,19 +57,34 @@ public class SpawnObjects : MonoBehaviour
     }
 
     IEnumerator obstacleWave(){
-        int j = 0;
-        while(j < obstacleWaveCount){
-            for (int i = 0; i < obstacleCount; i++)
-            {
-                yield return new WaitForSeconds(obstacleRespawnTime);
-                spawnObstacle();
+        if (GameController.activeLevel.id != 30)
+        {
+            int j = 0;
+            while(j < obstacleWaveCount){
+                for (int i = 0; i < obstacleCount; i++)
+                {
+                    yield return new WaitForSeconds(obstacleRespawnTime);
+                    spawnObstacle();
+                }
+                yield return new WaitForSeconds (obstacleWaveWait);
+                j = j + 1;
             }
-            yield return new WaitForSeconds (obstacleWaveWait);
-            j = j + 1;
+            GameObject f = Instantiate(finish) as GameObject;
+            f.transform.position = new Vector2(screenBounds.x * 2 + transform.position.x, 0);
         }
-        Debug.Log("finish");
-        GameObject f = Instantiate(finish) as GameObject;
-        f.transform.position = new Vector2(screenBounds.x * 2 + transform.position.x, 0);
+
+        else
+        {
+            while(true){
+                for (int i = 0; i < obstacleCount; i++)
+                {
+                    yield return new WaitForSeconds(obstacleRespawnTime);
+                    spawnObstacle();
+                }
+                yield return new WaitForSeconds (obstacleWaveWait);
+            }
+        }
+
     }
 
     private void spawnCoin(){
@@ -79,11 +98,5 @@ public class SpawnObjects : MonoBehaviour
             yield return new WaitForSeconds(coinRespawnTime);
             spawnCoin();
         }
-    }
-
-    IEnumerator RecordSpeed()
-    {
-        yield return new WaitForSeconds(4);
-        Debug.Log(this.transform.position.x);
     }
 }

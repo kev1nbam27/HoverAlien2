@@ -20,10 +20,13 @@ public class GameController : MonoBehaviour
     public int highscore;
     public int money;
     public GameObject joystickObject;
+
     public GameObject titleText;
     public GameObject scoreText;
+    public GameObject modeText;
     public GameObject playButtonText;
     public GameObject moneyText;
+
     public GameObject player;
     public GameObject background1;
     public GameObject background2;
@@ -31,6 +34,7 @@ public class GameController : MonoBehaviour
     public Sprite playerSprite;
     public Sprite backgroundSprite;
     public Sprite laserSprite;
+
     public GameObject controlButtonText;
     public GameObject adsButtonText;
     public GameObject tiltingOptionsButton;
@@ -60,6 +64,11 @@ public class GameController : MonoBehaviour
 
     public struct userAttributes {};
     public struct appAttributes {};
+
+    public GameObject bonusTab;
+
+    static bool lastLevelCompleted = false;
+    public GameObject conMessage;
     
     void Awake()
     {   
@@ -77,7 +86,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Play")
+        if (SceneManager.GetActiveScene().name == "Play" && activeLevel.id != 30)
         {
             #if UNITY_EDITOR
             int waveCount = 2;
@@ -88,10 +97,8 @@ public class GameController : MonoBehaviour
             float x = waveCount * (activeLevel.obstacleRespawnTime * activeLevel.difficulty + activeLevel.waveWait);
             float s = activeLevel.speed * activeLevel.speed * 2 * 0.032f / 4;
             float e = 2 * screenBounds.x + x * s;
-            Debug.Log(e);
             
             int progress = (int)(this.transform.position.x / e * 100);
-            Debug.Log(progress);
 
             if (progress > 100)
             {
@@ -116,31 +123,57 @@ public class GameController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Menu")
         {
+            highscore = PlayerPrefs.GetInt("highscore", 0);
+            scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1);
+
             if (menu == "GameOver")
             {
-                //menu = "";
-                highscore = PlayerPrefs.GetInt("highscore", 0);
                 playButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Restart";
                 titleText.GetComponent<TMPro.TextMeshProUGUI>().text = "Game Over";
-                scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1);
+
+                if (activeLevel.id == 30)
+                {
+                    scoreText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 87.6f);
+                    scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Highscore: " + highscore + "\n" + "Your Score: " + score;
+
+                    modeText.SetActive(true);
+                }
             }
 
             else if (menu == "Start")
             {
-                highscore = PlayerPrefs.GetInt("highscore", 0);
                 playButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Play";
                 titleText.GetComponent<TMPro.TextMeshProUGUI>().text = "Hover Alien";
-                scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1);
+
+                if (activeLevel.id == 30)
+                {
+                    scoreText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 87.6f);
+                    scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Highscore: " + highscore;
+
+                    modeText.SetActive(true);
+                }
             }
 
             else if (menu == "LevelCompleted")
             {
-                highscore = PlayerPrefs.GetInt("highscore", 0);
                 playButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Continue";
                 titleText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level Completed";
-                scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1);
-            }
+                
+                if (lastLevelCompleted == true)
+                {
+                    conMessage.SetActive(true);
+                    lastLevelCompleted = false;
+                }
 
+                if (activeLevel.id == 30)
+                {
+                    scoreText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 87.6f);
+                    scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Highscore: " + highscore;
+
+                    modeText.SetActive(true);
+                }
+            }
+            
             background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
@@ -173,6 +206,9 @@ public class GameController : MonoBehaviour
             background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
+
+            if (currentLevel == 30)
+                bonusTab.SetActive(true);
         }
 
         else if (SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "HowToPlay")
@@ -198,6 +234,8 @@ public class GameController : MonoBehaviour
 
             scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
             levelText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1).ToString();
+            if (activeLevel.id == 30)
+                levelText.GetComponent<TMPro.TextMeshProUGUI>().text = "Endless Mode";
 
             LoadSkins();
             LoadUserOptions();
@@ -599,8 +637,11 @@ public class GameController : MonoBehaviour
 
     public void LevelCompleted()
     {
-        if (activeLevelID == currentLevel && activeLevelID != 29)
+        if (activeLevelID == currentLevel)
         {
+            if (activeLevelID == 29)
+                lastLevelCompleted = true;
+            
             currentLevel = currentLevel + 1;
             SaveCurrentLevel();
             menu = "LevelCompleted";
@@ -1296,6 +1337,12 @@ public class GameController : MonoBehaviour
     {
         score = score + s;
         scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
+
+        if (activeLevel.id == 30)
+        {
+            scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "";
+            progressText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
+        }
     }
     [System.Serializable]
     public class Skin    {

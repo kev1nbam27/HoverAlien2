@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     public static string menu;
     public static string lastMenu;
     public SkinsRoot allSkins;
-    public Options optionsObject;
+    public Dictionary<string, string> options;
     public bool adsEnabled;
     public int highscore;
     public int money;
@@ -119,7 +119,7 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         LoadCurrentLevel();
 
-        LoadFramerate();
+        LoadUserOptions();
 
         if (SceneManager.GetActiveScene().name == "Menu")
         {
@@ -214,8 +214,8 @@ public class GameController : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "Options" || SceneManager.GetActiveScene().name == "HowToPlay")
         {
             LoadSkins();
-            LoadUserOptions();
-            LoadAdsOptions();
+            //LoadUserOptions();
+            //LoadAdsOptions();
 
             background1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
             background2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(allLevels.levels[currentLevel].bgSprite);
@@ -235,11 +235,15 @@ public class GameController : MonoBehaviour
             scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
             levelText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1).ToString();
             if (activeLevel.id == 30)
+            {
                 levelText.GetComponent<TMPro.TextMeshProUGUI>().text = "Endless Mode";
+                scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "";
+                progressText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
+            }
 
             LoadSkins();
-            LoadUserOptions();
-            LoadAdsOptions();
+            //LoadUserOptions();
+            //LoadAdsOptions();
 
             foreach (Skin s in allSkins.skins)
             {
@@ -665,10 +669,19 @@ public class GameController : MonoBehaviour
 
     public void ControlButtonClicked(Button btn)
     {
-        optionsObject.joystick = !optionsObject.joystick;
+        if (options["joystick"] == "true")
+        {
+            options["joystick"] = "false";
+        }
+
+        else
+        {
+            options["joystick"] = "true";
+        }
+
         SaveOptions();
         LoadUserOptions();
-        if (optionsObject.joystick == true)
+        if (options["joystick"] == "true")
         {
             controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: On";
             controlButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
@@ -687,27 +700,61 @@ public class GameController : MonoBehaviour
         if (framerate == 60)
         {
             framerate = 30;
+            options["framerate"] = "30";
         }
 
         else
         {
             framerate = 60;
+            options["framerate"] = "60";
         }
 
-        SaveFramerate();
-        LoadFramerate();
+        SaveOptions();
     }
 
-    public void AdsButtonClicked(Button btn)
+    void JoystickSetUp()
     {
-        adsEnabled = !adsEnabled;
-        SaveAdsOptions();
-        LoadAdsOptions();
+        if (SceneManager.GetActiveScene().name == "Play")
+        {
+            if (options["joystick"] == "true")
+            {
+                joystickObject.SetActive(true);
+                player.GetComponent<PlayerMover>().joystick = true;
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "Options")
+        {
+            if (options["joystick"] == "true")
+            {
+                controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: On";
+                controlButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
+            }
+
+            else
+            {
+                controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: Off";
+                controlButtonText.GetComponentInParent<Image>().color = new Color(190f / 255f, 251f / 255f, 255f / 255f);
+            }
+        }
+    }
+
+    void FramerateSetUp()
+    {
+        framerate = int.Parse(options["framerate"]);
+
+        if (SceneManager.GetActiveScene().name == "Options")
+        {
+            framerateButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Framerate: " +framerate.ToString()+ " FPS";
+        }
+
+        Application.targetFrameRate = framerate;
     }
 
     void LoadUserOptions()
     {
-        if (PlayerPrefs.GetString("options", "Felix") != "Felix")
+        //old code
+        /*if (PlayerPrefs.GetString("options", "Felix") != "Felix")
         {
             optionsObject = JsonConvert.DeserializeObject<Options>(PlayerPrefs.GetString("options"));
             if (SceneManager.GetActiveScene().name == "Play")
@@ -739,25 +786,71 @@ public class GameController : MonoBehaviour
         {
             optionsObject.joystick = false;
             SaveOptions();
+        }*/
+
+        //new code
+        if (PlayerPrefs.GetString("UserOptions", "Felix") != "Felix")
+        {
+            bool save = false; //define if it should call SaveOptions()
+            string json = PlayerPrefs.GetString("UserOptions");
+            options = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+
+            if (options.ContainsKey("joystick"))
+            {
+                JoystickSetUp();
+            }
+
+            else
+            {
+                options.Add("joystick", "false");
+                save = true;
+            }
+
+            if (options.ContainsKey("framerate"))
+            {
+                FramerateSetUp();
+            }
+
+            else
+            {
+                options.Add("framerate", "30");
+                save = true;
+            }
+
+            if (save)
+            {
+                SaveOptions();
+            }
         }
+
+        else
+        {
+            options = new Dictionary<string, string>();
+            options.Add("joystick", "false");
+            options.Add("framerate", "30");
+            SaveOptions();
+        }
+
     }
 
     public void SaveOptions()
     {
-        string json = JsonConvert.SerializeObject(optionsObject);
-        PlayerPrefs.SetString("options", json);
+        string json = JsonConvert.SerializeObject(options);
+        PlayerPrefs.SetString("UserOptions", json);
         PlayerPrefs.Save();
         LoadUserOptions();
-        if (SceneManager.GetActiveScene().name == "Play")
+        
+        //probably delete this
+        /*if (SceneManager.GetActiveScene().name == "Play")
         {
             if (optionsObject.joystick == true)
             {
                 joystickObject.SetActive(true);
                 player.GetComponent<PlayerMover>().joystick = optionsObject.joystick;
             }
-        }
+        }*/
     }
-
+/*
     void LoadFramerate()
     {
         if (PlayerPrefs.GetInt("framerate", -27) != -27)
@@ -823,7 +916,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.Save();
         LoadUserOptions();
     }
-
+*/
     void SaveMoney()
     {
         PlayerPrefs.SetInt("money", money);
@@ -1396,10 +1489,5 @@ public class GameController : MonoBehaviour
     [System.Serializable]
     public class LevelsRoot    {
         public List<Level> levels = new List<Level>();
-    }
-
-    [System.Serializable]
-    public class Options    {
-        public bool joystick;
     }
 }

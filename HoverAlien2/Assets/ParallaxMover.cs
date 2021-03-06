@@ -6,6 +6,15 @@ public class ParallaxMover : MonoBehaviour
 {
     public float scrollSpeed;
     
+    void Start()
+    {
+        if (this.name == "Background" || this.name == "Finish")
+        {
+            float scale = GameController.verticalSize;
+            transform.localScale = transform.localScale * scale;
+        }
+    }
+
     void FixedUpdate() {
 
         Vector3 velocity = Vector3.zero;

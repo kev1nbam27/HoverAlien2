@@ -5,7 +5,7 @@ using UnityEngine;
 public class BackgroundLoop : MonoBehaviour{
     public GameObject[] levels;
     private Camera mainCamera;
-    private Vector2 screenBounds;
+    public Vector2 screenBounds;
     public float choke;
     public float scrollSpeed;
     public Sprite backgroundSprite;

@@ -2080,8 +2080,6 @@ MonoBehaviour:
     skins: []
     backgrounds: []
     lasers: []
-  optionsObject:
-    joystick: 0
   adsEnabled: 0
   highscore: 0
   money: 0
@@ -3287,27 +3285,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7664498706115411825, guid: 02c63ffab37b77a69b1be81d636454cf, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7664498706115411825, guid: 02c63ffab37b77a69b1be81d636454cf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7664498706115411825, guid: 02c63ffab37b77a69b1be81d636454cf, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664498706115411825, guid: 02c63ffab37b77a69b1be81d636454cf, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664498706115411825, guid: 02c63ffab37b77a69b1be81d636454cf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664498706115411825, guid: 02c63ffab37b77a69b1be81d636454cf, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664498706115411825, guid: 02c63ffab37b77a69b1be81d636454cf, type: 3}
       propertyPath: m_LocalPosition.x

@@ -17,12 +17,16 @@ public class SpawnObjects : MonoBehaviour
     public int obstacleWaveCount = 10;
     int obstacleWaves;
     private Vector2 screenBounds;
+    
+    float scale;
 
     // Use this for initialization
     void Start() {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
-        obstacleCount = GameController.activeLevel.difficulty;
+        scale = GameController.verticalSize;
+
+        obstacleCount = (int)Mathf.Round(scale * GameController.activeLevel.difficulty);
         obstacleWaveCount = GameController.activeLevel.waveCount;
         obstacleWaveWait = GameController.activeLevel.waveWait;
         obstacleRespawnTime = GameController.activeLevel.obstacleRespawnTime;
@@ -46,7 +50,7 @@ public class SpawnObjects : MonoBehaviour
     void Update()
     {
         if (GameController.activeLevel.id == 30)
-            obstacleCount = 5 + (int)((float)GameController.score / 1000);
+            obstacleCount = (int)Mathf.Round(scale * (5f + (float)GameController.score / 1000));
     }
 
     private void spawnObstacle(){

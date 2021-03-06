@@ -16,7 +16,6 @@ public class GameController : MonoBehaviour
     public static string lastMenu;
     public SkinsRoot allSkins;
     public Dictionary<string, string> options;
-    public bool adsEnabled;
     public int highscore;
     public int money;
     public GameObject joystickObject;
@@ -36,17 +35,12 @@ public class GameController : MonoBehaviour
     public Sprite laserSprite;
 
     public GameObject controlButtonText;
-    public GameObject adsButtonText;
+    public GameObject modeButtonText;
     public GameObject tiltingOptionsButton;
     public GameObject joystickOptionsButton;
 
     public GameObject framerateButtonText;
     public int framerate;
-
-    public bool retry = true;
-    public static bool retried;
-    public GameObject retryPopUp;
-    string placement = "rewardedVideo";
 
     public GameObject errorMessage;
     
@@ -69,6 +63,9 @@ public class GameController : MonoBehaviour
 
     static bool lastLevelCompleted = false;
     public GameObject conMessage;
+
+    public static float verticalSize = 1.5f;
+    CanvasScaler canvasScaler;
     
     void Awake()
     {   
@@ -227,10 +224,7 @@ public class GameController : MonoBehaviour
             highscore = PlayerPrefs.GetInt("highscore", 0);
             money = PlayerPrefs.GetInt("money", 0);
 
-            if (retried == false)
-            {
-                score = 0;
-            }
+            score = 0;
 
             scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
             levelText.GetComponent<TMPro.TextMeshProUGUI>().text = "Level: " + (activeLevelID + 1).ToString();
@@ -263,6 +257,23 @@ public class GameController : MonoBehaviour
                     player.GetComponent<ShootLaser>().laserSprite = Resources.Load<Sprite>(l.image);
                 }
             }
+        }
+    }
+
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().name != "Start")
+        {
+            canvasScaler = GameObject.Find("Canvas").GetComponent<CanvasScaler>();
+            canvasScaler.referenceResolution = new Vector2(800f, verticalSize * canvasScaler.referenceResolution.y);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Play")
+        {
+            Camera.main.orthographicSize *= verticalSize;
+            screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+            player.GetComponent<PlayerMover>().screenBounds = screenBounds;
+            Camera.main.GetComponent<BackgroundLoop>().screenBounds = screenBounds;
         }
     }
 
@@ -608,21 +619,6 @@ public class GameController : MonoBehaviour
         activeLevelID = currentLevel;
     }
 
-    public void GameOverRetry()
-    {
-        if (retry && Advertisement.IsReady(placement) && !retried && score > 1990 && adsEnabled != false)
-        {
-            Time.timeScale = 0;
-            joystickObject.SetActive(false);
-            retryPopUp.SetActive(true);
-        }
-        
-        else
-        {
-            GameOver();
-        }
-    }
-
     public void GameOver()
     {
         if (score > highscore)
@@ -633,7 +629,6 @@ public class GameController : MonoBehaviour
         
         PlayerPrefs.SetInt("money", money + score);
         PlayerPrefs.Save();
-        retried = false;
         menu = "GameOver";
 
         StartCoroutine(sceneFade.LoadScene("Menu"));
@@ -661,12 +656,6 @@ public class GameController : MonoBehaviour
         StartCoroutine(sceneFade.LoadScene("Menu"));
     }
 
-    public void AdCompleted()
-    {
-        retried = true;
-        StartCoroutine(sceneFade.LoadScene("Play"));
-    }
-
     public void ControlButtonClicked(Button btn)
     {
         if (options["joystick"] == "true")
@@ -681,18 +670,22 @@ public class GameController : MonoBehaviour
 
         SaveOptions();
         LoadUserOptions();
-        if (options["joystick"] == "true")
+    }
+
+    public void ModeButtonClicked(Button btn)
+    {
+        if (options["tablet-mode"] == "true")
         {
-            controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: On";
-            controlButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
+            options["tablet-mode"] = "false";
         }
 
         else
         {
-            controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: Off";
-            controlButtonText.GetComponentInParent<Image>().color = new Color(190f / 255f, 251f / 255f, 255f / 255f);
+            options["tablet-mode"] = "true";
         }
 
+        SaveOptions();
+        LoadUserOptions();
     }
 
      public void FramerateButtonClicked(Button btn)
@@ -736,6 +729,66 @@ public class GameController : MonoBehaviour
                 controlButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "    Onscreen Joystick: Off";
                 controlButtonText.GetComponentInParent<Image>().color = new Color(190f / 255f, 251f / 255f, 255f / 255f);
             }
+        }
+    }
+
+    void ModeSetUp()
+    {
+        if (options["tablet-mode"] == "true")
+        {
+            verticalSize = 1.5f;
+        }
+
+        else
+        {
+            verticalSize = 1f;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Options")
+        {
+            if (options["tablet-mode"] == "true")
+            {
+                modeButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "         Tablet-Mode: On";
+                modeButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
+            }
+
+            else
+            {
+                modeButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "         Tablet-Mode: Off";
+                modeButtonText.GetComponentInParent<Image>().color = new Color(190f / 255f, 251f / 255f, 255f / 255f);
+            }
+        }
+    }
+
+    bool isTablet()
+    {
+        float DeviceDiagonalSizeInInches()
+        {
+            float screenWidth = Screen.width / Screen.dpi;
+            float screenHeight = Screen.height / Screen.dpi;
+            float diagonalInches = Mathf.Sqrt(Mathf.Pow(screenWidth, 2) + Mathf.Pow(screenHeight, 2));
+    
+            return diagonalInches;
+        }
+
+        bool deviceIsIpad = false;
+        bool isAndroidTablet = false;
+
+#if UNITY_IOS
+        deviceIsIpad = UnityEngine.iOS.Device.generation.ToString().Contains("iPad");
+#elif UNITY_ANDROID
+
+        float aspectRatio = Mathf.Max(Screen.width, Screen.height) / Mathf.Min(Screen.width, Screen.height);
+        isAndroidTablet = (DeviceDiagonalSizeInInches() > 6.5f && aspectRatio < 2f);
+#endif
+
+        if (deviceIsIpad || isAndroidTablet)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -791,6 +844,7 @@ public class GameController : MonoBehaviour
         //new code
         if (PlayerPrefs.GetString("UserOptions", "Felix") != "Felix")
         {
+
             bool save = false; //define if it should call SaveOptions()
             string json = PlayerPrefs.GetString("UserOptions");
             options = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
@@ -817,6 +871,18 @@ public class GameController : MonoBehaviour
                 save = true;
             }
 
+            if (options.ContainsKey("tablet-mode"))
+            {
+                ModeSetUp();
+            }
+
+            else
+            {
+                string deviceIsTablet = isTablet().ToString().ToLowerInvariant();
+                options.Add("tablet-mode", deviceIsTablet);
+                save = true;
+            }
+
             if (save)
             {
                 SaveOptions();
@@ -828,6 +894,8 @@ public class GameController : MonoBehaviour
             options = new Dictionary<string, string>();
             options.Add("joystick", "false");
             options.Add("framerate", "30");
+            string deviceIsTablet = isTablet().ToString().ToLowerInvariant();
+            options.Add("tablet-mode", deviceIsTablet);
             SaveOptions();
         }
 
@@ -878,43 +946,6 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("framerate", framerate);
         PlayerPrefs.Save();
         LoadFramerate();
-    }
-
-    void LoadAdsOptions()
-    {
-        if (PlayerPrefs.GetString("adsOptions", "Felix") != "Felix")
-        {
-            adsEnabled = JsonConvert.DeserializeObject<bool>(PlayerPrefs.GetString("adsOptions"));
-
-            if (SceneManager.GetActiveScene().name == "Options")
-            {
-                if (adsEnabled)
-                {
-                    adsButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "            Ads enabled";
-                    //adsButtonText.GetComponentInParent<Image>().color = new Color(160f / 255f, 219f / 255f, 69f / 255f);
-                }
-
-                else
-                {
-                    adsButtonText.GetComponent<TMPro.TextMeshProUGUI>().text = "            Ads disabled";
-                    adsButtonText.GetComponentInParent<Image>().color = new Color(190f / 255f, 251f / 255f, 255f / 255f);
-                }
-            }
-        }
-
-        else
-        {
-            adsEnabled = true;
-            SaveAdsOptions();
-        }
-    }
-
-    public void SaveAdsOptions()
-    {
-        string json = JsonConvert.SerializeObject(adsEnabled);
-        PlayerPrefs.SetString("adsOptions", json);
-        PlayerPrefs.Save();
-        LoadUserOptions();
     }
 */
     void SaveMoney()

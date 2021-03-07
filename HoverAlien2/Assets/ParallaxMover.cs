@@ -8,7 +8,7 @@ public class ParallaxMover : MonoBehaviour
     
     void Start()
     {
-        if (this.name == "Background" || this.name == "Finish")
+        if (this.name == "Background" || this.name == "Finish(Clone)")
         {
             float scale = GameController.verticalSize;
             transform.localScale = transform.localScale * scale;

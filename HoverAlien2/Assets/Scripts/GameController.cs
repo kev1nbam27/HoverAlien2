@@ -274,6 +274,7 @@ public class GameController : MonoBehaviour
             screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
             player.GetComponent<PlayerMover>().screenBounds = screenBounds;
             Camera.main.GetComponent<BackgroundLoop>().screenBounds = screenBounds;
+            this.GetComponent<SpawnObjects>().screenBounds = screenBounds;
         }
     }
 

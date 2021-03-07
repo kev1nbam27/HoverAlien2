@@ -16,7 +16,7 @@ public class SpawnObjects : MonoBehaviour
     public float obstacleWaveWait;
     public int obstacleWaveCount = 10;
     int obstacleWaves;
-    private Vector2 screenBounds;
+    public Vector2 screenBounds;
     
     float scale;
 

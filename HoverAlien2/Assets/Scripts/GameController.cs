@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
             int waveCount = activeLevel.waveCount;
             #endif
 
-            float x = waveCount * (activeLevel.obstacleRespawnTime * activeLevel.difficulty + activeLevel.waveWait);
+            float x = waveCount * (activeLevel.obstacleRespawnTime * activeLevel.difficulty * verticalSize + activeLevel.waveWait);
             float s = activeLevel.speed * activeLevel.speed * 2 * 0.032f / 4;
             float e = 2 * screenBounds.x + x * s;
             

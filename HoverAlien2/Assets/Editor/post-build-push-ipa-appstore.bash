@@ -1,5 +1,5 @@
 #!/bin/bash
-if [["$TARGET_NAME" == "release-ios"]]
+if [[ "$TARGET_NAME" == "release-ios" ]]
 then
 echo "Uploading IPA to Appstore Connect..."
 #Path is "/BUILD_PATH/<ORG_ID>.<PROJECT_ID>.<BUILD_TARGET_ID>/.build/last/<BUILD_TARGET_ID>/build.ipa"
